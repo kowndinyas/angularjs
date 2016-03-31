@@ -2,6 +2,6 @@
 
 ## Table of contents
 
-* [Developer Handbook](DevHandbook.md)
-* [Life of a feature](LifeOfAFeature.md)
-* [Storybook](Stories/index.md)
+* [Developer Handbook](DevHandbook)
+* [Life of a feature](LifeOfAFeature)
+* [Storybook](Stories)
