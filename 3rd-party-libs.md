@@ -37,23 +37,17 @@ module.exports = function(defaults) {
 
 ### 4. Configure SystemJS mappings to know where to look for moment.js
 
-SystemJS configuration is located in `index.html` and after the configuration is done should look something like:
+SystemJS configuration is located in `system-config.ts` and after the custom configuration is done the related section should look like:
 
-```html
-<script>
-  System.config({
-    packages: {
-      app: {
-        format: 'register',
-        defaultExtension: 'js'
-      }
-    },
-    map: {
-      'moment': 'vendor/moment/moment.js'
-    }
-  });
-  System.import('app.js').then(null, console.error.bind(console));
-</script>
+```ts
+export const config: any = {
+  packages: Object.assign({
+    // Add your custom SystemJS packages here.
+  }, createPackageConfig(barrels)),
+  map: {
+    'moment': 'vendor/moment/moment.js'
+  }
+};
 ```
 
 ### 5. Importing and using moment.js library in your project source files
@@ -114,34 +108,27 @@ This will make files available in the `dist/` folder.
 
 ### 4. Set up your SystemJS configuration
 
-SystemJS configuration is located in `index.html` and here's an example of how to configure it:
+SystemJS configuration is located in `system-config.ts` and here's an example of how to configure it (custom section):
 
-```html
-<script>
-  System.config({
-    map: {
-      '@angular2-material': 'vendor/@angular2-material'
-    },
-    packages: {
-      app: {
-        format: 'register',
-        defaultExtension: 'js'
-      },
-      '@angular2-material': {
-        map: {
-          './button': './button/button.js',
-          './card': './card/card.js',
-          './checkbox': './checkbox/checkbox.js',
-          './input': './input/input.js',
-          './progress-circle': './progress-circle/progress-circle.js',
-          './sidenav': './sidenav/sidenav.js',
-          './toolbar': './toolbar/toolbar.js',
-        }
+```ts
+export const config: any = {
+  packages: Object.assign({
+    '@angular2-material': {
+      map: {
+        './button': './button/button.js',
+        './card': './card/card.js',
+        './checkbox': './checkbox/checkbox.js',
+        './input': './input/input.js',
+        './progress-circle': './progress-circle/progress-circle.js',
+        './sidenav': './sidenav/sidenav.js',
+        './toolbar': './toolbar/toolbar.js',
       }
     }
-  });
-  System.import('app.js').then(null, console.error.bind(console));
-</script>
+  }, createPackageConfig(barrels)),
+  map: {
+    '@angular2-material': 'vendor/@angular2-material'
+  }
+};
 ```
 
 ### 5. Example of use material2 component
