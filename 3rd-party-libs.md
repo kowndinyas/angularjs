@@ -97,10 +97,11 @@ The `angular-cli-build.js` content after the setup should look like;
 var Angular2App = require('angular-cli/lib/broccoli/angular2-app');
 
 module.exports = function(defaults) {
-  var app = new Angular2App(defaults, {
-    vendorNpmFiles: ['@angular2-material/**/*.js']
+  return new Angular2App(defaults, {
+    vendorNpmFiles: [
+      '@angular2-material/**/*.js'
+    ]
   });
-  return app.toTree();
 };
 ```
 
@@ -111,23 +112,24 @@ This will make files available in the `dist/` folder.
 SystemJS configuration is located in `system-config.ts` and here's an example of how to configure it (custom section):
 
 ```ts
-export const config: any = {
-  packages: Object.assign({
-    '@angular2-material': {
-      map: {
-        './button': './button/button.js',
-        './card': './card/card.js',
-        './checkbox': './checkbox/checkbox.js',
-        './input': './input/input.js',
-        './progress-circle': './progress-circle/progress-circle.js',
-        './sidenav': './sidenav/sidenav.js',
-        './toolbar': './toolbar/toolbar.js',
-      }
-    }
-  }, createPackageConfig(barrels)),
-  map: {
-    '@angular2-material': 'vendor/@angular2-material'
-  }
+/** Map relative paths to URLs. */
+const map:any = {
+  '@angular2-material': 'vendor/@angular2-material'
+};
+
+/** User packages configuration. */
+const packages:any = {
+  '@angular2-material/core': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: 'core.js'
+  },
+  '@angular2-material/card': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: 'card.js'
+  },
+  // And so on...
 };
 ```
 
