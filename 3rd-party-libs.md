@@ -40,14 +40,9 @@ module.exports = function(defaults) {
 SystemJS configuration is located in `system-config.ts` and after the custom configuration is done the related section should look like:
 
 ```ts
-export const config: any = {
-  packages: Object.assign({
-    // Add your custom SystemJS packages here.
-  }, createPackageConfig(barrels)),
-  map: {
-    'moment': 'vendor/moment/moment.js'
-  }
-};
+const map: any = {
+  'moment': 'vendor/moment/moment.js'
+};  
 ```
 
 ### 5. Importing and using moment.js library in your project source files
