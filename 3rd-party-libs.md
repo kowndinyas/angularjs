@@ -81,6 +81,7 @@ Current available packages for material2 are
 - button
 - card
 - checkbox
+- icon
 - input
 - list
 - progress-bar
