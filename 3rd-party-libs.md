@@ -120,10 +120,10 @@ const packages:any = {
     defaultExtension: 'js',
     main: 'core.js'
   },
-  '@angular2-material/card': {
+  '@angular2-material/checkbox': {
     format: 'cjs',
     defaultExtension: 'js',
-    main: 'card.js'
+    main: 'checkbox.js'
   },
   // And so on...
 };
