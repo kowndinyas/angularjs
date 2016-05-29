@@ -10,13 +10,13 @@ Table of contents:
 
 ### 1. Install moment.js via npm
 
-```
+```bash
 npm install moment --save
 ```
 
 ### 2. Install typings for moment.js library
 
-```
+```bash
 typings install moment moment-node --ambient --save
 ```
 
@@ -62,13 +62,13 @@ ___
 
 ### 1. Install material2 core
 
-```
+```bash
 npm install @angular2-material/core --save
 ```
 
 ### 2. Install material2 package you'll use
 
-```
+```bash
 npm install @angular2-material/checkbox --save
 ```
 
@@ -109,12 +109,12 @@ SystemJS configuration is located in `system-config.ts` and here's an example of
 
 ```ts
 /** Map relative paths to URLs. */
-const map:any = {
+const map: any = {
   '@angular2-material': 'vendor/@angular2-material'
 };
 
 /** User packages configuration. */
-const packages:any = {
+const packages: any = {
   '@angular2-material/core': {
     format: 'cjs',
     defaultExtension: 'js',
@@ -134,14 +134,15 @@ const packages:any = {
 Example of use material2 component:
 
 ```ts
-import {Component} from 'angular2/core';
-import {MdCheckbox} from '@angular2-material/checkbox';
+import { Component } from 'angular2/core';
+import { MdCheckbox } from '@angular2-material/checkbox';
 
 @Component({
-  selector: 'my-component',
+  selector: 'my-app',
   template: `<md-checkbox></md-checkbox>`,
   directives: [MdCheckbox]
 })
+export class AppComponent { }
 ```
 
 Congratulations, you now have material2 components available to use in your project. Enjoy!
