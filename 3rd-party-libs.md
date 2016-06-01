@@ -14,13 +14,15 @@ Table of contents:
 npm install moment --save
 ```
 
-### 2. Install typings for moment.js library
+### 1a. **OPTIONAL** Install typings for library
+
+Moment already includes typings, but not all libraries do. To add typings for a library, do the following:
 
 ```bash
-typings install moment moment-node --ambient --save
+typings install LIBRARY_NAME --ambient --save
 ```
 
-### 3. Add moment.js to angular-cli-build.js file to vendorNpmFiles array
+### 2. Add moment.js to angular-cli-build.js file to vendorNpmFiles array
 
 This is required so the build system will pick up the file. After setup the `angular-cli-build.js` should look like this:
 
@@ -28,30 +30,40 @@ This is required so the build system will pick up the file. After setup the `ang
 var Angular2App = require('angular-cli/lib/broccoli/angular2-app');
 
 module.exports = function(defaults) {
-  var app = new Angular2App(defaults, {
-    vendorNpmFiles: ['moment/moment.js']
+  return new Angular2App(defaults, {
+    vendorNpmFiles: [
+      // ...
+      'moment/moment.js'
+    ]
   });
-  return app.toTree();
 };
 ```
 
-### 4. Configure SystemJS mappings to know where to look for moment.js
+### 3. Configure SystemJS mappings to know where to look for moment.js
 
 SystemJS configuration is located in `system-config.ts` and after the custom configuration is done the related section should look like:
 
 ```ts
+/** Map relative paths to URLs. */
 const map: any = {
   'moment': 'vendor/moment/moment.js'
-};  
+};
+
+/** User packages configuration. */
+const packages: any = {
+  'moment':{
+    format: 'cjs'
+  }
+};
 ```
 
-### 5. Importing and using moment.js library in your project source files
+### 4. Importing and using moment.js library in your project source files
 
 Import moment.js library in your source `.ts` files like this:
 
 ```ts
-import * as moment_ from 'moment';
-const moment: moment.MomentStatic = (<any>moment_)['default'] || moment_;
+import * as moment from 'moment';
+moment().format();
 ```
 
 If you followed the steps correctly you should now have moment.js library working in your project. Enjoy!
