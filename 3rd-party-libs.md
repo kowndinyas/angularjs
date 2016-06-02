@@ -146,7 +146,7 @@ const packages: any = {
 Example of use material2 component:
 
 ```ts
-import { Component } from 'angular2/core';
+import { Component } from '@angular/core';
 import { MdCheckbox } from '@angular2-material/checkbox';
 
 @Component({
