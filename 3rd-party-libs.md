@@ -218,7 +218,11 @@ const packages: any = {
 Import moment.js library in your source `.ts` files like this:
 
 ```ts
-import * as underscore from 'underscore';
+//Place this at the top near your imports
+/// <reference path="../../../typings/globals/underscore/index.d.ts" >
+declare var _;
+
+//usage
 _.each([1, 2, 3], alert);
 ```
 
