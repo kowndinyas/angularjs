@@ -175,7 +175,7 @@ npm install underscore --save
 Underscore does not have typings installed unlike moment. To add typings for a library, do the following:
 
 ```bash
-typings install underscore --global --save
+typings install dt~underscore --global --save
 ```
 
 ### 2. Add underscore to angular-cli-build.js file to vendorNpmFiles array
