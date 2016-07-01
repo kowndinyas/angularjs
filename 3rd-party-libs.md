@@ -215,7 +215,7 @@ const packages: any = {
 
 ### 4. Importing and using underscore library in your project source files
 
-Import moment.js library in your source `.ts` files like this:
+Import underscore library in your source `.ts` files like this:
 
 ```ts
 //Place this at the top near your imports
