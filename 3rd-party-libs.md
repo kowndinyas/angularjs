@@ -219,7 +219,7 @@ Import underscore library in your source `.ts` files like this:
 
 ```ts
 //Place this at the top near your imports
-/// <reference path="../../../typings/globals/underscore/index.d.ts" >
+/// <reference path="../../../typings/globals/underscore/index.d.ts" />
 declare var _;
 
 //usage
