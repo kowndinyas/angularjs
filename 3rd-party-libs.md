@@ -227,3 +227,6 @@ _.each([1, 2, 3], alert);
 ```
 
 If you followed the steps correctly you should now have underscore library working in your project. Enjoy!
+
+
+I don't know how to install this library. Can someone help out with that? https://github.com/acdlite/redux-promise
