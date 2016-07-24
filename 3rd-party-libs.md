@@ -17,10 +17,10 @@ npm install moment --save
 
 ### 1a. **OPTIONAL** Install typings for library
 
-Moment already includes typings, but not all libraries do. To add typings for a library, do the following:
+Moment already includes typings, but not all libraries do. To add typings for moment, do the following:
 
 ```bash
-typings install LIBRARY_NAME --global --save
+typings install dt~moment --global --save
 ```
 
 ### 2. Add moment.js to angular-cli-build.js file to vendorNpmFiles array
