@@ -5,6 +5,7 @@ Examples of how to install 3rd party libraries.
 Table of contents:
 - [Adding moment.js library to your project](#adding-momentjs-library-to-your-project)
 - [Adding material2 to your project](#adding-material2-to-your-project)
+- [Adding bootstrap to your project](#adding-bootstrap-to-your-project)
 - [Adding underscore library to your project](#adding-underscore-library-to-your-project)
 
 ## Adding moment.js library to your project
@@ -38,6 +39,10 @@ module.exports = function(defaults) {
     ]
   });
 };
+```
+After updating this file, make a fresh build to update the `dist` folder according to the new settings.
+```bash
+ng build
 ```
 
 ### 3. Configure SystemJS mappings to know where to look for moment.js
@@ -113,6 +118,10 @@ module.exports = function(defaults) {
   });
 };
 ```
+After updating this file, make a fresh build to update the `dist` folder according to the new settings.
+```bash
+ng build
+```
 
 This will make files available in the `dist/` folder.
 
@@ -161,6 +170,75 @@ export class AppComponent { }
 Congratulations, you now have material2 components available to use in your project. Enjoy!
 
 ___
+## Adding bootstrap to your project
+
+### 1. Add boostrap styles to the `index.html`
+```html
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+```
+
+### 2. Add [momentjs](#adding-momentjs-library-to-your-project) to the project, then install bootstrap via npm
+```bash
+npm install ng2-bootstrap --save
+```
+
+### 3. Add bootstrap to `angular-cli-build.js` file to vendorNpmFiles array
+This is required so that the build system will pick up the file. After setup the `angular-cli-build.js` (located in the main project directory) should look like this:
+
+```js
+var Angular2App = require('angular-cli/lib/broccoli/angular2-app');
+
+module.exports = function(defaults) {
+  return new Angular2App(defaults, {
+    vendorNpmFiles: [
+      // ...
+      'ng2-bootstrap/**/*.js',
+    ]
+  });
+};
+```
+After updating this file, make a fresh build to update the `dist` folder according to the new settings.
+```bash
+ng build
+```
+
+### 4. Configure SystemJS mappings to know where to look for bootstrap
+
+SystemJS configuration is located in `src/system-config.ts` and after the custom configuration is done the related section should look like:
+
+```ts
+/** Map relative paths to URLs. */
+const map: any = {
+  'ng2-bootstrap': 'vendor/ng2-bootstrap'
+};
+
+/** User packages configuration. */
+const packages: any = {
+  'ng2-bootstrap': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: 'ng2-bootstrap.js'
+  }
+};
+```
+### 5. Example of use bootstrap component
+
+Example of Alert component:
+
+```ts
+import { Component } from '@angular/core';
+import { AlertComponent } from 'ng2-bootstrap/ng2-bootstrap';
+
+@Component({
+  selector: 'my-app',
+  template: `<alert type="info">ng2-bootstrap hello world!</alert>`,
+  directives: [AlertComponent],
+})
+export class AppComponent { }
+```
+
+Congratulations, you now have bootstrap components available to use in your project. Enjoy!
+___
 
 ## Adding underscore library to your project
 
@@ -193,6 +271,10 @@ module.exports = function(defaults) {
     ]
   });
 };
+```
+After updating this file, make a fresh build to update the `dist` folder according to the new settings.
+```bash
+ng build
 ```
 
 ### 3. Configure SystemJS mappings to know where to look for underscore
