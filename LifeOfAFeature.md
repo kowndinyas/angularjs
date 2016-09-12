@@ -1,7 +1,7 @@
 # Life of a feature
 This wiki page helps understand how we implement features in the angular-cli tool.
 
-You have an (awesome, I'm sure) idea that you just came out and nobody has thought of it yet. Great! We want to listen to you. But first, we need to discuss about it.
+You have an (awesome, I'm sure) idea that you just came out and nobody has thought of it yet. Great! We want to listen to you. But first, we need to discuss it.
 
 ## Agree on the feature
 The first thing that you need to do is to create an issue. That issue will be triaged into the proper labels. The `phase: proposal` label indicates that this is something new and will get the discussion started.
@@ -9,7 +9,7 @@ The first thing that you need to do is to create an issue. That issue will be tr
 Maybe we will agree that this would be better done in another project (like Angular Core). Or maybe we will postpone it to a future milestone. Or maybe we will all approve that this is something that needs to be designed and done. Thus we move to the next step.
 
 ## Create a Design Document
-Every feature will need to have a design phase. We want the idea to be well thought out and anticipate as much obstacles as possible. And we want to have multiple people know and think about the implications of such feature.
+Every feature will need to have a design phase. We want the idea to be well thought out and anticipate as many obstacles as possible. And we want to have multiple people know and think about the implications of such feature.
 
 Someone (hopefully you) will be assigned to the issue created, and will create a document. There is a simple template for an [Angular Design Document][angular-design-doc]. Or you can create your own, as long as the content is clear and you cover the same general points.
 
