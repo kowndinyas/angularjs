@@ -4,7 +4,7 @@ This page documents the steps to follow to migrate your old application to using
 
 # Steps to Migrate
 
-This guide assume your application is using SystemJS created with the `beta.10` and is up to date to >= Angular `RC6`. Also, make sure you committed everything from your project to Git.
+This guide assumes your application is using SystemJS created with the `beta.10` and is up to date to >= Angular `RC6`. Also, make sure you committed everything from your project to Git.
 
 1. Upgrade to the latest CLI globally:
 
