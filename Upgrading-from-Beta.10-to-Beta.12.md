@@ -51,7 +51,16 @@ This guide assumes your application is using SystemJS created with the `beta.10`
 
 1. In most cases, you can override your `src/index.html` with the one in `src.webpacktemplate/index.html`, but you might want to be careful if you have custom modifications to it.
 
-1. Environments are now selected in the `angular-cli.json`. You need to edit that file, and change the files it points to in `apps[0].environment`.
+1. Copy over your environment files. These are now part of the app and not in the root of your repo, and `environment.dev.ts` is now just `environment.ts`.
+
+     ```bash
+     mv ${OLD_PATH}/config/environment.dev.ts src/environments/environment.ts
+     mv ${OLD_PATH}/config/environment.prod.ts src/environments/environment.prod.ts
+     ```
+
+     If you have any custom environments don't forget to move them too.
+
+     Environments are now listed in the angular-cli.json. Make sure those files matches the files on your disk. More importantly, because they're part of your application, their paths are relative to your `main.ts`.
 
 1. Install npm dependencies that you were using. These may include (but not limited to):
    * Angular Material 2 (need HammerJS typings)
