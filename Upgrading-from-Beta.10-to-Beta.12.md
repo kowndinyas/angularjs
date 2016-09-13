@@ -1,4 +1,4 @@
-We changed the build system between beta.10 and beta.12, from SystemJS to Webpack. And with it comes a lot of advantages. Unfortunately, it also means your app built with the old beta will not work anymore; you'll have to migrate.
+We changed the build system between beta.10 and beta.12, from SystemJS to Webpack. And with it comes a lot of benefits. To take advantage of these, your app built with the old beta will need to migrate.
 
 This page documents the steps to follow to migrate your old application to using the newest beta.
 
@@ -86,3 +86,14 @@ This guide assume your application is using SystemJS created with the `beta.10` 
 
 
 1. Finally, **if you're using SASS or LESS**, you need to rename your `styleUrls` in all your files. Webpack understands LESS and SASS so you can use `styleUrls: ['my-component.scss']` in your component and it will be transcompiled automatically.
+
+1. After all this, make sure you don't need anything else from the `src.webpacktemplate/` directory, try to `ng build`. If everything works, chances are you're good to go. Delete the `src.webpacktemplate/` directory.
+
+1. Time to replace the git folder so you don't lose your history. Delete the `.git/` file in the new migration project. Then copy over your old `.git/` folder to replace it.
+
+    ```bash
+    rm -rf .git/
+    cp -R ${OLD_PATH}/.git .
+    ```
+
+1. Go ahead and `ng serve` your app, then look at the resulting website. Adjust and adapt your code according to errors.
