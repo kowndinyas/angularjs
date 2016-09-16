@@ -9,6 +9,8 @@ This guide assumes your application is using SystemJS created with the `beta.10`
 1. Upgrade to the latest CLI globally:
 
     ```bash
+    npm uninstall -g angular-cli
+    npm cache clean
     npm install -g angular-cli@latest
     ```
 
