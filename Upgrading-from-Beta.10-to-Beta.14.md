@@ -1,4 +1,4 @@
-We changed the build system between beta.10 and beta.12, from SystemJS to Webpack. And with it comes a lot of benefits. To take advantage of these, your app built with the old beta will need to migrate.
+We changed the build system between beta.10 and beta.14, from SystemJS to Webpack. And with it comes a lot of benefits. To take advantage of these, your app built with the old beta will need to migrate.
 
 This page documents the steps to follow to migrate your old application to using the newest beta.
 
