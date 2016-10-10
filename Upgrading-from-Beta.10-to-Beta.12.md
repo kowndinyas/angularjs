@@ -32,6 +32,12 @@ This guide assumes your application is using SystemJS created with the `beta.10`
     mv ${OLD_PATH}/src src
     ```
 
+1. Replace the `e2e/` folder with your application's `e2e/` folder.
+ 
+    ```bash
+    mv ${OLD_PATH}/e2e e2e
+    ```
+
 1. Delete files that are not needed anymore.
 
     ```bash
