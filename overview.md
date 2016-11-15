@@ -9,7 +9,7 @@ To install the angular-cli:
 npm install -g angular-cli
 ```
 
-[Create](new.md) and [run](serve.md) a new project:
+[Create](new) and [run](serve) a new project:
 ```
 ng new my-project
 cd new-project
