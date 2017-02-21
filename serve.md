@@ -6,6 +6,8 @@
 `ng serve` builds the application and starts a web server
 
 ## Options
+`--watch` (`-w`) rebuild when files change
+
 `--port` (`-p`) port to serve the application on
 
 `--host` (`-H`) host where to listen
@@ -59,3 +61,5 @@
 `--extract-css` (`-ec`) extract css from global styles onto css files instead of js ones
 
 `--output-hashing` define the output filename cache-busting hashing mode
+
+`--poll` enable and define the file watching poll time period (milliseconds)
