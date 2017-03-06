@@ -424,7 +424,7 @@ Update `beforeLaunch` as described in [One tsconfig per app](#one-tsconfig-per-a
 ```
 beforeLaunch: function() {
   require('ts-node').register({
-    project: 'e2e'
+    project: 'e2e/tsconfig.e2e.json'
   });
 },
 ```
