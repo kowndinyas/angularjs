@@ -292,7 +292,7 @@ Then update `protractor.conf.js` to use the e2e config as well:
 ```
 beforeLaunch: function() {
   require('ts-node').register({
-    project: 'e2e'
+    project: 'e2e/tsconfig.e2e.json'
   });
 },
 ```
