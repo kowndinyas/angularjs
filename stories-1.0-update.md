@@ -8,8 +8,6 @@ Most of these changes were not breaking changes and your project should work fin
 But if you've been waiting for the perfect time to update, this is it!
 Along with major rebuild speed increases, we've been busy adding a lot of features.
 
-This means that a project upgraded now should need no more code changes all the way to 1.0.
-
 Documentation has also completely moved to [the wiki](https://github.com/angular/angular-cli/wiki).
 The new [Stories](https://github.com/angular/angular-cli/wiki/stories) section covers common usage
 scenarios, so be sure to have a look!
