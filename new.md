@@ -49,16 +49,6 @@ Default applications are created in a directory of the same name, with an initia
 </details>
 
 <details>
-  <summary>ng4</summary>
-  <p>
-    `--ng4` _default value: false_
-  </p>
-  <p>
-    Create a project with Angular 4 in the template.
-  </p>
-</details>
-
-<details>
   <summary>prefix</summary>
   <p>
     `--prefix` (alias: `-p`) _default value: app_
@@ -111,10 +101,13 @@ Default applications are created in a directory of the same name, with an initia
 <details>
   <summary>skip-tests</summary>
   <p>
-    `--skip-tests` (alias: `-st`) _default value: false_
+    <code>--skip-tests</code> (aliases: <code>-st</code>) <em>default value: false</em>
   </p>
   <p>
     Skip creating spec files.
+  </p>
+  <p>
+    Skip including e2e functionality.
   </p>
 </details>
 
