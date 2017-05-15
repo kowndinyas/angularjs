@@ -59,10 +59,49 @@ ng build --base-href /myUrl/
 ng build --bh /myUrl/
 ```
 
-### Bundling
+### Bundling & Tree-Shaking
 
-All builds make use of bundling, and using the `--prod` flag in  `ng build --prod`
-or `ng serve --prod` will also make use of uglifying and tree-shaking functionality.
+All builds make use of bundling and limited tree-shaking, while `--prod` builds also run limited
+dead code elimination via UglifyJS.
+
+### `--dev` vs `--prod` builds
+
+Both `--dev`/`--target=development` and `--prod`/`--target=production` are 'meta' flags, that set other flags.
+If you do not specify either you will get the `--dev` defaults.
+
+Flag                | `--dev` | `--prod`
+---                 | ---     | ---
+`--aot`             | `false` | `true`
+`--environment`     | `dev`   | `prod`
+`--output-hashing`  | `media` | `all`
+`--sourcemaps`      | `true`  | `false`
+`--extract-css`     | `false` | `true`
+
+`--prod` also sets the following non-flaggable settings:
+- Adds service worker if configured in `.angular-cli.json`.
+- Replaces `process.env.NODE_ENV` in modules with the `production` value (this is needed for some libraries, like react).
+- Runs UglifyJS on the code.
+
+### CSS resources
+
+Resources in CSS, such as images and fonts, will be copied over automatically as part of a build.
+If a resource is less than 10kb it will also be inlined.
+
+You'll see these resources be outputted and fingerprinted at the root of `dist/`.
+
+### Service Worker
+
+There is experimental service worker support for production builds available in the CLI.
+To enable it, run the following commands:
+```
+npm install @angular/service-worker --save
+ng set apps.0.serviceWorker=true
+```
+
+On `--prod` builds a service worker manifest will be created and loaded automatically.
+Remember to disable the service worker while developing to avoid stale code.
+
+Note: service worker support is experimental and subject to change.
 
 ## Options
 <details>
