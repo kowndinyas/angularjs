@@ -34,7 +34,7 @@ The first thing you need to do is make your `AppModule` compatible with Universa
     BrowserModule.withServerTransition({appId: 'my-app'}),
     ...
   ],
-  
+
 })
 export class AppModule {}
 ```
@@ -77,7 +77,7 @@ Create a main file for your Universal bundle. This file only needs to export you
 export {AppServerModule} from './app/app.server.module';
 ```
 
-Copy `tsconfig.app.json` to `tsconfig.server.json` and change it to build with a `"module"` target of `"commonjs"`.
+Copy `tsconfig.app.json` to `tsconfig-server.json` and change it to build with a `"module"` target of `"commonjs"`.
 
 Add a section for `"angularCompilerOptions"` and set `"entryModule"` to your `AppServerModule`, specified as a path to the import with a hash (`#`) containing the symbol name. In this example, this would be `app/app.server.module#AppServerModule`.
 
@@ -110,8 +110,6 @@ Add a section for `"angularCompilerOptions"` and set `"entryModule"` to your `Ap
 In `.angular-cli.json` there is an array under the key `"apps"`. Copy the configuration for your client application there, and paste it as a new entry in the array, with an additional key `"platform"` set to `"server"`.
 
 Then, remove the `"polyfills"` key - those aren't needed on the server, and adjust `"main"`, and `"tsconfig"` to point to the files you wrote in step 2. Finally, adjust `"outDir"` to a new location (this example uses `dist-server`).
-
-This file does not support comments, so you'll need to remove them if you copy the code below.
 
 ### .angular-cli.json:
 
@@ -170,7 +168,7 @@ $ ng build --prod
 ...
 # This builds the server bundle in dist-server/
 $ ng build --prod --app 1
-Date: 2017-07-24T22:42:09.739Z                                                       
+Date: 2017-07-24T22:42:09.739Z
 Hash: 9cac7d8e9434007fd8da
 Time: 4933ms
 chunk {0} main.988d7a161bd984b7eb54.bundle.js (main) 9.49 kB [entry] [rendered]
