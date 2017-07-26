@@ -111,6 +111,8 @@ In `.angular-cli.json` there is an array under the key `"apps"`. Copy the config
 
 Then, remove the `"polyfills"` key - those aren't needed on the server, and adjust `"main"`, and `"tsconfig"` to point to the files you wrote in step 2. Finally, adjust `"outDir"` to a new location (this example uses `dist-server`).
 
+This file does not support comments, so you'll need to remove them if you copy the code below.
+
 ### .angular-cli.json:
 
 ```javascript
