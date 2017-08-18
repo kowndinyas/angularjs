@@ -36,7 +36,7 @@
     Use lint to fix files after generation.
   </p>
   <p>
-    You can also set default true to use lint every time after generation. To do this, change the value in <em>.angular-cli.json</em> (<code>apps[0].lintFix</code>).
+    You can also set default true to use lint every time after generation. To do this, change the value in <em>.angular-cli.json</em> (<code>defaults.lintFix</code>).
   </p>
 </details>
 
@@ -47,5 +47,15 @@
   </p>
   <p>
     Adds more details to output logging.
+  </p>
+</details>
+
+<details>
+  <summary>collection</summary>
+  <p>
+    <code>--collection</code> (aliases: <code>-c</code>) <em>default value: @schematics/angular</em>
+  </p>
+  <p>
+    Schematics collection to use.
   </p>
 </details>

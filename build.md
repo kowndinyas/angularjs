@@ -80,6 +80,7 @@ Flag                | `--dev` | `--prod`
 `--output-hashing`  | `media` | `all`
 `--sourcemaps`      | `true`  | `false`
 `--extract-css`     | `false` | `true`
+`--named-chunks`    | `true`  | `false`
 
 `--extract-licenses` Extract all licenses in a separate file, in the case of production builds only.
 `--i18n-file` Localization file to use for i18n.
@@ -336,7 +337,7 @@ Note: service worker support is experimental and subject to change.
 <details>
   <summary>build-optimizer</summary>
   <p>
-    <code>--build-optimizer</code>
+    <code>--build-optimizer</code> (aliases: <code>-bo</code>)
   </p>
   <p>
     (Experimental) Enables @angular-devkit/build-optimizer optimizations when using `--aot`.
