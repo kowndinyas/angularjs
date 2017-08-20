@@ -167,12 +167,12 @@ With these steps complete, you should be able to build a server bundle for your 
 $ ng build --prod
 ...
 # This builds the server bundle in dist-server/
-$ ng build --prod --app 1
-Date: 2017-07-24T22:42:09.739Z
-Hash: 9cac7d8e9434007fd8da
-Time: 4933ms
-chunk {0} main.988d7a161bd984b7eb54.bundle.js (main) 9.49 kB [entry] [rendered]
-chunk {1} styles.d41d8cd98f00b204e980.bundle.css (styles) 0 bytes [entry] [rendered]
+$ ng build -prod -app 1 --output-hashing none
+Date: 2017-08-20T19:22:26.582Z                                                       
+Hash: 84e8f2e2d4375801c1e9
+Time: 3176ms
+chunk {0} main.bundle.js (main) 10.2 kB [entry] [rendered]
+chunk {1} styles.bundle.css (styles) 623 bytes [entry] [rendered]
 ```
 
 ## Testing the bundle
@@ -188,7 +188,7 @@ var renderModuleFactory = require('@angular/platform-server').renderModuleFactor
 
 // Import the AOT compiled factory for your AppServerModule.
 // This import will change with the hash of your built server bundle.
-var AppServerModuleNgFactory = require('./dist-server/main.988d7a161bd984b7eb54.bundle').AppServerModuleNgFactory;
+var AppServerModuleNgFactory = require('./dist-server/main.bundle').AppServerModuleNgFactory;
 
 // Load the index.html file.
 var index = require('fs').readFileSync('./src/index.html', 'utf8');
