@@ -202,6 +202,19 @@ Note: service worker support is experimental and subject to change.
 </details>
 
 <details>
+  <summary>missing-translation</summary>
+  <p>
+    <code>--missing-translation</code>
+  </p>
+  <p>
+    How to handle missing translations for i18n.
+  </p>
+  <p>
+    Values: <code>error</code>, <code>warning</code>, <code>ignore</code>
+  </p>
+</details>
+
+<details>
   <summary>output-hashing</summary>
   <p>
     <code>--output-hashing</code> (aliases: <code>-oh</code>)
@@ -337,7 +350,7 @@ Note: service worker support is experimental and subject to change.
 <details>
   <summary>build-optimizer</summary>
   <p>
-    <code>--build-optimizer</code> (aliases: <code>-bo</code>)
+    <code>--build-optimizer</code>
   </p>
   <p>
     (Experimental) Enables @angular-devkit/build-optimizer optimizations when using `--aot`.
