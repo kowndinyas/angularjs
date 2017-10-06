@@ -360,9 +360,19 @@ Note: service worker support is experimental and subject to change.
 <details>
   <summary>named-chunks</summary>
   <p>
-    <code>--named-chunks</code> (aliases: <code>-nm</code>)
+    <code>--named-chunks</code> (aliases: <code>-nc</code>)
   </p>
   <p>
     Use file name for lazy loaded chunks.
+  </p>
+</details>
+
+<details>
+  <summary>bundle-dependencies</summary>
+  <p>
+    <code>--bundle-dependencies</code>
+  </p>
+  <p>
+    In a server build, state whether `all` or `none` dependencies should be bundles in the output.
   </p>
 </details>
