@@ -55,9 +55,14 @@ This example places it alongside `app.module.ts` in a file named `app.server.mod
 
 ### src/app/app.server.module.ts:
 
+You can see here we're simply Importing everything from AppModule, followed by ServerModule.
+
+> One important thing to Note: We need `ModuleMapLoaderModule` to help make Lazy-loaded routes possible during Server-side renders with the Angular-CLI.
+
 ```typescript
 import {NgModule} from '@angular/core';
 import {ServerModule} from '@angular/platform-server';
+import {ModuleMapLoaderModule} from '@nguniversal/module-map-ngfactory-loader';
 
 import {AppModule} from './app.module';
 import {AppComponent} from './app.component';
@@ -67,7 +72,8 @@ import {AppComponent} from './app.component';
     // The AppServerModule should import your AppModule followed
     // by the ServerModule from @angular/platform-server.
     AppModule,
-    ServerModule,
+    ServerModule, 
+    ModuleMapLoaderModule // <-- *Important* to have lazy-loaded routes work
   ],
   // Since the bootstrapped component is not inherited from your
   // imported AppModule, it needs to be repeated here.
@@ -312,7 +318,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {  server: './server.ts' },
-  resolve: { extensions: ['.ts', '.js'] },
+  resolve: { extensions: ['.js', '.ts'] },
   target: 'node',
   // this makes sure we include node_modules and other 3rd party libraries
   externals: [/(node_modules|main\..*\.js)/],
@@ -336,6 +342,7 @@ module.exports = {
     new webpack.ContextReplacementPlugin(
       /(.+)?express(\\|\/)(.+)?/,
       path.join(__dirname, 'src'),
+      {}
     )
   ]
 }
@@ -365,8 +372,8 @@ Now lets create a few handy scripts to help us do all of this in the future.
 "scripts": {
 
   // These will be your common scripts
-  "build:dynamic": "npm run build:client-and-server-bundles && npm run webpack:server",
-  "serve:dynamic": "node dist/server.js",
+  "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
+  "serve:ssr": "node dist/server.js",
 
   // Helpers for the above scripts
   "build:client-and-server-bundles": "ng build --prod && ng build --prod --app 1 --output-hashing=false",
@@ -377,7 +384,7 @@ Now lets create a few handy scripts to help us do all of this in the future.
 In the future when you want to see a Production build of your app with Universal (locally), you can simply run:
 
 ```bash
-npm run build:dynamic && npm run serve:dynamic
+npm run build:ssr && npm run serve:ssr
 ```
 
 Enjoy!
